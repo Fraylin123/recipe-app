@@ -1,16 +1,17 @@
 import {useState} from "react"
+import "../assets/Home.css"
 
 function Home(){
     const [type, setType] = useState("")
     const [region, setRegion] = useState("")
 
     return(
-        <>
+        <div className="main">
             <h1>Recipe App</h1>
             <h3>What type of dish are you feeling?</h3>
             <div className="foodButtons">
                 <button>Sweet</button>
-                <button>Spicy</button>
+                <button>Salty</button>
             </div>
 
             <h3>From what region?</h3>
@@ -32,12 +33,14 @@ function Home(){
                 <option value="1 hour">1 hour</option>
                 <option value="2 hour">2 hours</option>
             </select>
+            
+            <button id="cookButton">Cook</button>
 
             <div className="generatedContent">
 
             </div>
         
-        </>
+        </div>
     )
 
 }
