@@ -47,3 +47,12 @@ select{
     cursor:pointer;
     opacity: 0.9;
 }
+
+.generatedContent{
+    background-color: white;
+    padding: 50px;
+}
+
+.generatedContent pre{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}

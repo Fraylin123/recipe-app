@@ -6,6 +6,7 @@ function Home() {
     const [type, setType] = useState([false, false])
     const [region, setRegion] = useState("")
     const [time, setTime] = useState("")
+    const [recipe, setRecipe] = useState("")
 
     const handleType = (index: number) => {
         setType((prev) => {
@@ -26,18 +27,20 @@ function Home() {
             alert("Missing input. Make sure there are no blanks")
             return;
         }
+
+        const newType = type[0] ? "sweet" : "salty"
         try {
-            const response = await fetch("http://localhost:5173/api/exercises", {
+            const response = await fetch("http://localhost:3000/api/recipe", {
                 method: "POST",
                 headers: {
-                    "content-type": "application/json"
+                    "content-Type": "application/json"
                 },
-                body: JSON.stringify({ type, region, time })
+                body: JSON.stringify({ newType, region, time })
 
             });
 
             const data = await response.json();
-            console.log("Recipe")
+            setRecipe(data.recipe)
         } catch (error){
             console.log("Error found when generating recipe:", error)
         }
@@ -75,6 +78,7 @@ function Home() {
             <button id="cookButton" onClick={generateRecipe}>Cook</button>
 
             <div className="generatedContent">
+                {recipe && <pre>{recipe}</pre>}
 
             </div>
 
