@@ -1,6 +1,5 @@
 import { useState } from "react"
 import "../assets/Home.css"
-import axios from "axios"
 
 function Home() {
     const [type, setType] = useState([false, false])
@@ -70,6 +69,7 @@ function Home() {
             <h3>Cooking time?</h3>
             <select id="time" name="time" value={time} onChange={handleTime}>
                 <option value=""></option>
+                <option value="10 minutes">10 minutes</option>
                 <option value="30 minutes">30 minutes</option>
                 <option value="1 hour">1 hour</option>
                 <option value="2 hour">2 hours</option>
